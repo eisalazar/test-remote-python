@@ -1,7 +1,5 @@
 import json
 
-payload='{"assetId":10}'
-body='{"name":"Prueba"}'
 def json_load_byteified(file_handle):
 	return _byteify(
 		json.load(file_handle, object_hook=_byteify),
@@ -35,6 +33,8 @@ origin=json_loads_byteified(payload)
 extension=json_loads_byteified(body)
 
 def function(orig,ext):
+	print(orig)
+	print(ext)
 	orig.update(ext)
 	return orig
 
