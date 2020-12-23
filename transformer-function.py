@@ -29,13 +29,15 @@ def _byteify(data, ignore_dicts = False):
 	# if it's anything else, return it in its original form
 	return data
 
+extension = body.decode('utf-8')
+
 origin=json_loads_byteified(payload)
-extension=json_loads_byteified(body)
+extension=json_loads_byteified(extension)
 
 def function(orig,ext):
 	print(orig)
 	print(ext)
-	orig.update(ext)
+	orig.update(ext)	
 	return orig
 
 returnvalue=function(origin, extension)
